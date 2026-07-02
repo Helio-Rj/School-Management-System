@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <title>School Management System</title>
-
+    <title>Alunos</title>
 </head>
-
 <body>
-
 {% extends "accounts/base.html" %}
 
 {% block content %}
 
-<h2>Home</h2>
+<h2>Students</h2>
 
-<p>O meu primeiro Template Django.</p>
+<ul>
+
+    {% for student in students %}
+
+    <li>{{ student }}</li>
+
+    {% endfor %}
+
+</ul>
 
 {% endblock %}
 
-</body>
 
+</body>
 </html>
