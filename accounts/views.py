@@ -7,15 +7,38 @@ def home(request):
 
 def students(request):
     students_list = [
-        "João",
-        "Maria",
-        "Carlos",
-        "Fernanda",
-        "Lucas",
+        {
+            "name": "João",
+            "active": True,
+        },
+        {
+            "name": "Maria",
+            "active": False,
+        },
+        {
+            "name": "Carlos",
+            "active": True,
+        },
+        {
+            "name": "Fernanda",
+            "active": True,
+        },
+        {
+            "name": "Lucas",
+            "active": False,
+        },
+        {
+            "name": "Helena",
+            "active": True,
+        },
     ]
 
     context = {
-        "students": students_list
+        "students": students_list,
+        "page_title": "Students",
+        "school_name": "School Management System",
+        "total_students": len(students_list),
+
     }
 
     return render(
