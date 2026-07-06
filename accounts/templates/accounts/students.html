@@ -9,32 +9,43 @@
 
 {% block content %}
 
-<h2>{{ page_title|upper }}</h2>
 
-<p><strong>School:</strong> {{ school_name|lower }}</p>
+{% include "accounts/partials/page_header.html" %}
 
-<p><strong>Total students:</strong>{{ total_students|stringformat:"02d" }}</p>
+<table border="1">
 
-<ul>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+
+    <tbody>
 
     {% for student in students %}
 
-    <li>
+    <tr>
 
-        {{ student.name }}
+        <td>{{ student.name }}</td>
 
-        {% if student.active %}
-        ✅ Ativo
-        {% else %}
-        ❌ Inativo
-        {% endif %}
+        <td>
 
-    </li>
+            {% if student.active %}
+            ✅ Ativo
+            {% else %}
+            ❌ Inativo
+            {% endif %}
+
+        </td>
+
+    </tr>
 
     {% endfor %}
 
-</ul>
+    </tbody>
 
+</table>
 {% endblock %}
 
 
