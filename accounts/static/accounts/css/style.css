@@ -11,6 +11,11 @@ body {
     flex-direction: column;
 }
 
+nav a.active {
+    border-bottom: 3px solid white;
+    padding-bottom: 5px;
+}
+
 /* ===== HEADER ===== */
 
 header {
@@ -41,7 +46,51 @@ nav a:hover {
 main {
     flex: 1;
     padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
+
+h2 {
+    margin-top: 0;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 10px 15px;
+}
+
+th {
+    background-color: #1f4e79;
+    color: yellow;
+}
+
+/* ===== TABELAS ===== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #1f4e79;
+    color: white;
+}
+
+/* ===== Footer ===== */
 
 footer {
     background-color: #003366;
