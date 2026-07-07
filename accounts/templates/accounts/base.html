@@ -18,11 +18,35 @@
     <h1>School Management System</h1>
 
     <nav>
-        <a href="{% url 'home' %}">Home</a>
-        <a href="{% url 'students' %}">Students</a>
-        <a href="{% url 'teachers' %}">Teachers</a>
-        <a href="{% url 'courses' %}">Courses</a>
-        <a href="{% url 'reports' %}">Reports</a>
+        <a
+                class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}"
+                href="{% url 'home' %}"
+        >
+            Home
+        </a>
+        <a
+                class="{% if request.resolver_match.url_name == 'students' %}active{% endif %}"
+                href="{% url 'students' %}"
+        >
+            Students</a>
+        <a
+                class="{% if request.resolver_match.url_name == 'teachers' %}active{% endif %}"
+                href="{% url 'teachers' %}"
+        >
+            Teachers
+        </a>
+        <a
+                class="{% if request.resolver_match.url_name == 'courses' %}active{% endif %}"
+                href="{% url 'courses' %}"
+        >
+            Courses
+        </a>
+        <a
+                class="{% if request.resolver_match.url_name == 'reports' %}active{% endif %}"
+                href="{% url 'reports' %}"
+        >
+            Reports
+        </a>
     </nav>
 
 </header>
