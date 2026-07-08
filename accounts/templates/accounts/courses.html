@@ -9,9 +9,27 @@
 
 {% block content %}
 
-<h2>Courses</h2>
+<h2>{{ page_title }}</h2>
 
-<p>Lista de cursos.</p>
+<p>Total courses: {{ total_courses }}</p>
+
+<table>
+    <thead>
+    <tr>
+        <th>Course</th>
+        <th>Workload</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for course in courses %}
+    <tr>
+        <td>{{ course.name }}</td>
+        <td>{{ course.workload }} hours</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 
 {% endblock %}
 

@@ -1,43 +1,20 @@
 from django.shortcuts import render
 
+from .models import Student, Course
+
 
 def home(request):
     return render(request, "accounts/home.html")
 
 
 def students(request):
-    students_list = [
-        {
-            "name": "João",
-            "active": True,
-        },
-        {
-            "name": "Maria",
-            "active": False,
-        },
-        {
-            "name": "Carlos",
-            "active": True,
-        },
-        {
-            "name": "Fernanda",
-            "active": True,
-        },
-        {
-            "name": "Lucas",
-            "active": False,
-        },
-        {
-            "name": "Helena",
-            "active": True,
-        },
-    ]
+    students_list = Student.objects.all()
 
     context = {
         "students": students_list,
         "page_title": "Students",
         "school_name": "School Management System",
-        "total_students": len(students_list),
+        "total_students": students_list.count(),
 
     }
 
@@ -53,7 +30,15 @@ def teachers(request):
 
 
 def courses(request):
-    return render(request, "accounts/courses.html")
+    courses_list = Course.objects.all()
+
+    context = {
+        "courses": courses_list,
+        "page_title": "Courses",
+        "total_courses": courses_list.count(),
+    }
+
+    return render(request, "accounts/courses.html", context)
 
 
 def reports(request):
