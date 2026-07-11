@@ -15,7 +15,35 @@ Teachers
 
 <h2>{{ page_title }}</h2>
 
-<p>Teachers module under construction.</p>
+<p>Total teachers: {{ total_teachers }}</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Subject</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for teacher in teachers %}
+        <tr>
+            <td>{{ teacher.name }}</td>
+            <td>{{ teacher.subject }}</td>
+
+            <td>
+                {% if teacher.active %}
+                    Active
+                {% else %}
+                    Inactive
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
 
 {% endblock %}
 

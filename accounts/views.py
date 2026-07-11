@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Student, Course
+from .models import Student, Course,Teacher
 
 
 def home(request):
@@ -26,7 +26,20 @@ def students(request):
 
 
 def teachers(request):
-    return render(request, "accounts/teachers.html")
+    teachers_list = Teacher.objects.all()
+
+    context = {
+        "teachers": teachers_list,
+        "page_title": "Teachers",
+        "school_name": "School Management System",
+        "total_teachers": teachers_list.count(),
+    }
+
+    return render(
+        request,
+        "accounts/teachers.html",
+        context
+    )
 
 
 def courses(request):
